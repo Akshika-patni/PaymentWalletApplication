@@ -12,6 +12,7 @@ public class PaymentAppDao implements IPaymentAppDao {
 	boolean flag = false;
 	List<PaymentApp> list = new ArrayList<PaymentApp>();
 	Map<String, Double> transaction = new HashMap<String, Double>();
+	double tid;
 	PaymentApp ps = new PaymentApp();
 
 	public boolean createAccount(PaymentApp paymentapp) {
@@ -43,7 +44,9 @@ public class PaymentAppDao implements IPaymentAppDao {
 		// TODO Auto-generated method stub
 		boolean b = false;
 		ps.setBalance(ps.getBalance() + amount);
-		transaction.put("the deposit amount is", amount);
+		tid = (long) (Math.random() * 100000);
+		String s=("With "+Double.toString(tid)+",Deposited amount is:");
+		transaction.put(s, amount);
 		b = true;
 		return b;
 	}
@@ -59,8 +62,10 @@ public class PaymentAppDao implements IPaymentAppDao {
 			}
 		} else {
 			ps.setBalance(ps.getBalance() - amount);
+			tid = (long) (Math.random() * 100000);
+			String s=("With "+Double.toString(tid)+",Withdraw amount is:");
 
-			transaction.put("the withdraw amount is", amount);
+			transaction.put(s, amount);
 			b4 = true;
 
 		}
@@ -72,7 +77,9 @@ public class PaymentAppDao implements IPaymentAppDao {
 		// TODO Auto-generated method stub
 		boolean b1 = false;
 		boolean b2 = false;
-		transaction.put("the transferres amount is", amount);
+		tid = (long) (Math.random() * 100000);
+		String s=("With "+Double.toString(tid)+",Transferred amount is:");
+		transaction.put(s, amount);
 		ps.setBalance(ps.getBalance() - amount);
 		b1 = true;
 		for (PaymentApp i : list) {

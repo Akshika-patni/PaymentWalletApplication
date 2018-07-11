@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import com.capgemini.paymentapp.bean.PaymentApp;
 import com.capgemini.paymentapp.exception.InvalidInputExp;
@@ -171,7 +173,14 @@ public class Customer
 
 							case 5:Map<String,Double> transaction1 = new HashMap<String, Double>();
                                transaction1= service.printTranscation();
-                               System.out.println(transaction1);
+                               Set<String> st=transaction1.keySet();
+                               Iterator<String> it= st.iterator() ;
+                               while(it.hasNext())
+                               {  String k=it.next();
+                               	System.out.print(k);
+                               	System.out.println(transaction1.get(k));
+                               }
+                            
                                
 								break;
 							case 6:
