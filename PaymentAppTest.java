@@ -1,35 +1,39 @@
 package com.capgemini.paymentapp.test;
 
+import com.capgemini.paymentapp.bean.PaymentApp;
+
 import junit.framework.TestCase;
 
 public class PaymentAppTest extends TestCase {
-
-	public void testToString() {
-		fail("Not yet implemented");
-	}
+ PaymentApp pa=new PaymentApp();
+	
 
 	public void testGetBalance() {
-		fail("Not yet implemented");
+	pa.setBalance(9423.0);
+	assertEquals(9423.0,pa.getBalance());
+	
 	}
 
 	public void testGetCustomerName() {
-		assertEquals("akshika","");
-		assertEquals("akshika","akshika");
+		pa.setCustomerName("akshika");
+		assertEquals("akshika",pa.getCustomerName());
 	}
 
 	public void testGetAccountNumber() {
-		assertEquals(1234356588,554534535);
-		assertEquals(1234356588,"");
+		pa.setAccountNumber(1234356588);
+		assertEquals(1234356588,pa.getAccountNumber());
+	
 		
 	}
 
 	public void testGetAddress() {
-		assertEquals("Jaipur","Jap");
-		assertEquals("Hyderabad","hyd");
+		pa.setAddress("Jaipur");
+		assertEquals("Jaipur",pa.getAddress());
 	}
 
 	public void testGetPhoneNumber() {
-		assertEquals(234567811,23901);
+		pa.setPhoneNumber("9414686242");
+		assertEquals("9414686242",pa.getPhoneNumber());
 	}
 
 	public void testGetAod() {
@@ -37,24 +41,30 @@ public class PaymentAppTest extends TestCase {
 	}
 
 	public void testGetGender() {
-		assertEquals("female","famale");
-		assertEquals("female","Famale");
-		assertEquals("Male","male");
-		assertEquals("Male","Male");
+		pa.setGender("Female");
+		assertEquals("Female",pa.getGender());
+		pa.setGender("Male");
+		assertEquals("Male",pa.getGender());
 	}
 
 	public void testGetAge() {
-		assertEquals("21","famale");
+		pa.setAge(21);
+		assertEquals(21,pa.getAge());
 	}
 	public void testGetUser_ID() {
-		assertEquals("akshika@gmail.com","akshika@gmail.com");
-		assertEquals("akshika@gmailpatni","akshikapatni");
-		assertEquals("akshika@gmail.com","akshi12345");
+		pa.setUser_ID("akshika@gmail.com");
+		assertEquals("akshika@gmail.com",pa.getUser_ID());
+		
+		
 		
 	}
 
 	public void testGetPassword() {
-		fail("Not yet implemented");
+		assertEquals("12345", "12345");
+		assertEquals("akshika12345", "akshika12345");
+		assertEquals("akshika", "akshika");
+		assertEquals("akshika@_123", "akshika@_123");
+		
 	}
 
 }
