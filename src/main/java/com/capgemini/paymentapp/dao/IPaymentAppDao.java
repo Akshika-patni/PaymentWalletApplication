@@ -2,10 +2,11 @@ package com.capgemini.paymentapp.dao;
 
 import java.util.Map;
 
-import com.capgemini.paymentapp.bean.PaymentApp;
+import com.capgemini.paymentapp.bean.Customer;
+
 
 public interface IPaymentAppDao {
-	public boolean createAccount(PaymentApp paymentapp);
+	public boolean createAccount(Customer customer);
 
 	public double showBalance();
 

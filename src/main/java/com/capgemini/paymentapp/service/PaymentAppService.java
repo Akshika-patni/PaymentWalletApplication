@@ -2,7 +2,8 @@ package com.capgemini.paymentapp.service;
 
 import java.util.Map;
 
-import com.capgemini.paymentapp.bean.PaymentApp;
+import com.capgemini.paymentapp.bean.Customer;
+
 import com.capgemini.paymentapp.dao.PaymentAppDao;
 
 public class PaymentAppService implements IPaymentAppService {
@@ -10,9 +11,9 @@ public class PaymentAppService implements IPaymentAppService {
 	
 	
 	 PaymentAppDao dao=new PaymentAppDao();
-	public boolean createAccount(PaymentApp paymentapp) {
+	public boolean createAccount(Customer customer) {
 		// TODO Auto-generated method stub
-		return dao.createAccount(paymentapp);
+		return dao.createAccount(customer);
 	}
 
 	public double showBalance() {

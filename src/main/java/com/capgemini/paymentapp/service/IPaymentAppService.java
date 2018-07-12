@@ -2,10 +2,11 @@ package com.capgemini.paymentapp.service;
 
 import java.util.Map;
 
-import com.capgemini.paymentapp.bean.PaymentApp;
+import com.capgemini.paymentapp.bean.Customer;
+
 
 public interface IPaymentAppService {
-	public boolean createAccount(PaymentApp paymentapp);
+	public boolean createAccount(Customer customer);
 
 	public double showBalance();
 	public boolean logIn(String user_ID,String password);

@@ -1,6 +1,7 @@
 package com.capgemini.paymentapp.test;
 
-import com.capgemini.paymentapp.bean.PaymentApp;
+import com.capgemini.paymentapp.bean.Customer;
+
 
 import com.capgemini.paymentapp.service.PaymentAppService;
 
@@ -9,10 +10,10 @@ import junit.framework.TestCase;
 
 public class PaymentAppServiceTest extends TestCase {
 
- PaymentApp pa=new PaymentApp();
+	 Customer c=new Customer();
  PaymentAppService ps=new PaymentAppService();
 	public void testCreateAccount() {
-		Assert.assertEquals(true,ps.createAccount(pa));
+		Assert.assertEquals(true,ps.createAccount(c));
 		//Assert.assertEquals(false,ps.createAccount(null));
 		
 	}
@@ -29,9 +30,7 @@ public class PaymentAppServiceTest extends TestCase {
 		Assert.assertEquals(true,ps.withdraw(0));
 	}
 
-	public void testFundTransfer() {
-	assertEquals(false,ps.fundTransfer(12344567, 0));
-	}
+	
 
 	
 
