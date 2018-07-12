@@ -23,7 +23,7 @@ PaymentAppDao dao=new PaymentAppDao();
 	}
 
 	public void testDeposite() {
-		Assert.assertEquals(true,dao.deposite(100));
+		Assert.assertEquals(true,dao.deposite(100.0));
 	}
 
 	public void testWithdraw() {
