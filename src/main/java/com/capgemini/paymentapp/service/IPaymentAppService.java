@@ -1,5 +1,6 @@
 package com.capgemini.paymentapp.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.capgemini.paymentapp.bean.Customer;
@@ -17,5 +18,5 @@ public interface IPaymentAppService {
 
 	public boolean fundTransfer( long receiverAccountNumber,double amount);
 
-	public Map<String,Double> printTranscation();
+	public  List<String> printTranscation();
 }

@@ -13,7 +13,6 @@ import com.capgemini.paymentapp.exception.InsufficientBalanceExp;
 public class PaymentAppDao implements IPaymentAppDao {
 	boolean flag = false;
 	List<Customer> list = new ArrayList<Customer>();
-	Map<String, Double> transaction = new HashMap<String, Double>();
 	double tid;
 	Customer ct = new Customer();
 	static Wallet w=new Wallet();
@@ -52,8 +51,10 @@ public class PaymentAppDao implements IPaymentAppDao {
 		double d=ct.getWallet().getInitalBalance()+amount;
 		w.setInitalBalance(d);
 		tid = (long) (Math.random() * 100000);
-		String s=("With "+Double.toString(tid)+",Deposited amount is:");
-		transaction.put(s, amount);
+		String s=("With "+Double.toString(tid)+",Deposited amount is:"+Double.toString(amount));
+		w.getTransaction().add(s);
+		
+		
 		b = true;
 		return b;
 	}
@@ -71,9 +72,9 @@ public class PaymentAppDao implements IPaymentAppDao {
 			double d=ct.getWallet().getInitalBalance()-amount;
 			w.setInitalBalance(d);
 			tid = (long) (Math.random() * 100000);
-			String s=("With "+Double.toString(tid)+",Withdraw amount is:");
+			String s=("With "+Double.toString(tid)+",Withdraw amount is:"+Double.toString(amount));
 
-			transaction.put(s, amount);
+			w.getTransaction().add(s);
 			b4 = true;
 
 		}
@@ -86,18 +87,24 @@ public class PaymentAppDao implements IPaymentAppDao {
 		boolean b1 = false;
 		boolean b2 = false;
 		tid = (long) (Math.random() * 100000);
-		String s=("With "+Double.toString(tid)+",Transferred amount is:");
-		transaction.put(s, amount);
+		
 		double d=ct.getWallet().getInitalBalance()-amount;
 		w.setInitalBalance(d);
 		b1 = true;
 		for (Customer i : list) {
 			if (i.getWallet().getAccountNumber() == receiverAccountNumber) {
-				double d2=ct.getWallet().getInitalBalance()+amount;
-				w.setInitalBalance(d2);
+				double d2=i.getWallet().getInitalBalance()+amount;
+				Wallet w1=new Wallet();
+				w1=i.getWallet();
+				w1.setInitalBalance(d2);
+				String s1=("With "+Double.toString(tid)+",After Transferred, deposited  amount is:"+Double.toString(amount));
+				w1.getTransaction().add(s1);
 				b2 = true;
 			}
+			
 		}
+		String s=("With "+Double.toString(tid)+",Transferred amount is:"+Double.toString(amount));
+		w.getTransaction().add(s);
 		if (b1 && b2)
 			return true;
 		else
@@ -105,9 +112,9 @@ public class PaymentAppDao implements IPaymentAppDao {
 
 	}
 
-	public Map printTranscation() {
+	public List<String> printTranscation() {
 
-		return transaction;
+		return w.getTransaction();
 
 	}
 

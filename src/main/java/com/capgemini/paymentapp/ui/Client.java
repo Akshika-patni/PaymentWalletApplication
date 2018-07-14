@@ -4,8 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -35,6 +37,7 @@ do
 		      switch (choice) 
 		      {
 			   case 1:Customer customer=new Customer();
+			   List<String> transaction=new ArrayList<String>();
 			   Wallet wallet= new Wallet();
 				   boolean b = false;
 
@@ -68,6 +71,7 @@ do
 				customer.setPhoneNumber(phoneNumber);
 				wallet.setAod(aod);
 				wallet.setAccountNumber(accountNumber);
+				wallet.setTransaction(transaction);
 				customer.setGender(gender);
 				customer.setUser_ID(user_ID);
 				customer.setPassword(password);
@@ -173,15 +177,10 @@ do
 								System.out.println("Transaction is failed!!!!");
 							break;
 
-						case 5:Map<String,Double> transaction1 = new HashMap<String, Double>();
-                           transaction1= service.printTranscation();
-                           Set<String> st=transaction1.keySet();
-                           Iterator<String> it= st.iterator() ;
-                           while(it.hasNext())
-                           {  String k=it.next();
-                           	System.out.print(k);
-                           	System.out.println(transaction1.get(k));
-                           }
+						case 5:
+                           	
+                           	System.out.println(service.printTranscation());
+                         
                         
                            
 							break;

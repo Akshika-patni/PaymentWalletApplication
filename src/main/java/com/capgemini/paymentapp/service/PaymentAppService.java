@@ -1,5 +1,6 @@
 package com.capgemini.paymentapp.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.capgemini.paymentapp.bean.Customer;
@@ -42,7 +43,7 @@ public class PaymentAppService implements IPaymentAppService {
 		
 	}
 
-	public Map<String,Double> printTranscation() {
+	public  List<String> printTranscation() {
 		// TODO Auto-generated method stub
 		return dao.printTranscation();
 	}
